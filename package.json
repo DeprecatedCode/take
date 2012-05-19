@@ -1,0 +1,21 @@
+{
+  "name": "take",
+  "description": "Take allows you to create clearly organized logical structures in Node.js",
+  "version": "0.0.1",
+  "private": false,
+  "dependencies": {
+  },
+  "homepage": "https://github.com/NateFerrero/take",
+  "author": "Nate Ferrero (http://nateferrero.com)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NateFerrero/take"
+  },
+  "main": "./index.js",
+  "licenses": [
+    {
+      "type": "MIT +no-false-attribs",
+      "url": "http://github.com/isaacs/npm/raw/master/LICENSE"
+    }
+  ]
+}
