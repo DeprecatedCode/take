@@ -106,7 +106,7 @@ module.exports = function() {
 			 * to be added on the chain
 			 */
 			process.nextTick(function() {
-				invoke.apply(util.set);
+				invoke.call({}, util.set);
 			});
 
 			/**

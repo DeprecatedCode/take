@@ -35,13 +35,13 @@ var multiply = take('x', 'y')(function(reply) {
  * executes. When using reply, pass the function
  * into a .then handler.
  */
-add(function() {
+add(function(set) {
 
 	/**
 	 * Let's use some random nums
 	 */
-	this.a(Math.random()*100);
-	this.b(Math.random()*100);
+	set.a(Math.random()*100);
+	set.b(Math.random()*100);
 
 }).then(function(result) {
 
@@ -50,10 +50,10 @@ add(function() {
 	 */
 	console.log("The sum is " + result);
 
-	multiply(function() {
+	multiply(function(set) {
 
-		this.x(result);
-		this.y(10);
+		set.x(result);
+		set.y(10);
 
 	}).then(function(result) {
 

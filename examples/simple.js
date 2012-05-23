@@ -18,8 +18,14 @@ var log = take('message')(function() {
 
 /**
  * Instead of passing arguments directly, pass
- * a method that calls the arguments.
+ * a method that sets the arguments.
  */
-log(function() {
-	this.message("Hello, World");
+log(function(set) {
+
+	setTimeout(function() {
+
+		set.message("Hello, World");
+
+	}, 1000);
+
 });
