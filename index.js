@@ -6,7 +6,13 @@
  */
 module.exports = function() {
 
+	/**
+	 * Verify Arguments
+	 */
 	var take = arguments;
+	for(var i in take)
+		if(typeof take[i] !== 'string')
+			throw new TypeError("take(...args...)(func); Each of args must be a string");
 
 	/**
 	 * Wrap a function to be called when
@@ -42,14 +48,10 @@ module.exports = function() {
 			var go = function() {
 
 				/**
-				 * Capture and verify arguments
+				 * Capture arguments
 				 */
 				var args = {};
-				for(var i in take)
-					if(typeof take[i] !== 'string')
-						throw new TypeError("take(...args...)(func); Each of args must be a string");
-					else
-						args[take[i]] = 0;
+				for(var i in take) args[take[i]] = 0;
 
 				/**
 				 * Prepare scope and setter logic
