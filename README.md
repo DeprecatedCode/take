@@ -14,12 +14,12 @@ Install through npm or clone the repository!
 
 var take = require('take');
 
-var addNumbers = take('num1', 'num2')(function(reply) {
+var addNumbers = take('num1', 'num2')(function(args, reply) {
 	
 	/**
-	 * All variables are properties of "this"
+	 * All variables are properties of "args"
 	 */
-	reply(this.num1 + this.num2);
+	reply(args.num1 + args.num2);
 
 });
 ```

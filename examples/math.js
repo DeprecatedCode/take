@@ -8,24 +8,24 @@ var take = require('../index');
 /**
  * Start out with an addition method
  */
-var add = take('a', 'b')(function(reply) {
+var add = take('a', 'b')(function(args, reply) {
 
 	/**
 	 * Arguments are populated into this
 	 */
-	reply(this.a + this.b);
+	reply(args.a + args.b);
 
 });
 
 /**
  * Let's define another method
  */
-var multiply = take('x', 'y')(function(reply) {
+var multiply = take('x', 'y')(function(args, reply) {
 
 	/**
 	 * Reply
 	 */
-	reply(this.x * this.y);
+	reply(args.x * args.y);
 
 });
 

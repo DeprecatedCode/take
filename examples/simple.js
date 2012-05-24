@@ -7,12 +7,12 @@ var take = require('../index');
 /**
  * Log a message
  */
-var log = take('message')(function() {
+var log = take('message')(function(args) {
 
 	/**
-	 * Arguments are populated into this
+	 * Arguments are populated into args
 	 */
-	console.log(this.message);
+	console.log(args.message);
 
 });
 
