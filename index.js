@@ -52,21 +52,16 @@ module.exports = function() {
 						args[take[i]] = 0;
 
 				/**
-				 * Utilities
-				 */
-				var util = {};
-
-				/**
 				 * Prepare scope and setter logic
 				 */
-				util.scope = {};
-				util.set = {};
-				util.setter = function(arg) {
+				var scope = {};
+				var set = {};
+				var setter = function(arg) {
 
 					/**
 					 * Add the setter
 					 */
-					util.set[arg] = function(value) {
+					set[arg] = function(value) {
 
 						/**
 						 * Ensure that each argument is set only once
@@ -77,7 +72,7 @@ module.exports = function() {
 						/**
 						 * Record the value in scope and mark as used
 						 */
-						util.scope[arg] = value;
+						scope[arg] = value;
 						args[arg] = 1;
 
 						/**
@@ -98,7 +93,7 @@ module.exports = function() {
 						 * of other logic in the invoke method
 						 */
 						process.nextTick(function() {
-							func.apply({}, [util.scope, master.reply]);
+							func.apply({}, [scope, master.reply]);
 						});
 
 						/**
@@ -112,9 +107,9 @@ module.exports = function() {
 				/**
 				 * Define the setter for each arg
 				 */
-				for(var arg in args) util.setter(arg);
+				for(var arg in args) setter(arg);
 
-				invoke.call({}, util.set);
+				invoke.call({}, set);
 			};
 
 			process.nextTick(function() {
